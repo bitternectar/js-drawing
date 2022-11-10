@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/frames.css" />
+    <link rel="stylesheet" href="./styles/instrumentsPanel.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root">
+      <div class="settings">
+        <div class="panel">
+          <div class="instr" id="pencil">
+            <img src="./img/pencil.png" alt="pencil img" />Pencil
+          </div>
+          <div class="instr" id="eraser">
+            <img src="./img/eraser.png" alt="eraser img" />Eraser
+          </div>
+          <p class="size-header">Size</p>
+          <input class="stroke-width" inputmode="numeric" id="swidth" />
+          <p class="size-header">Frame count</p>
+          <div class="frame-count">1</div>
+        </div>
+        <div class="buttons">
+          <button class="btn" id="play">Play</button>
+          <button class="btn">Save</button>
+        </div>
+      </div>
+
+      <div class="editor">
+        <canvas id="canvas" class="canvas-pencil"></canvas>
+        <div class="common-frame-panel">
+          <div class="frame-container" id="frameDiv">
+            <img class="frame" index="0" />
+          </div>
+          <img src="./img/plus.png" alt="add frame" class="add-frame" />
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

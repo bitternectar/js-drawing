@@ -1,0 +1,48 @@
+.frame-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.frame {
+  border: 1px solid rgb(247, 247, 247);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 2px;
+  box-shadow: 2px 2px rgb(198, 198, 198);
+}
+
+.selected-frame {
+  border: 2px solid #339af0;
+}
+
+.frame:hover {
+  border: 3px solid rgb(203, 203, 203);
+}
+
+.common-frame-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  max-width: 600px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(161, 161, 161);
+  border-radius: 10px;
+}
+
+.add-frame {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+.add-frame:hover {
+  width: 34px;
+  height: 34px;
+}

@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#canvas {
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgb(225, 225, 225);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.canvas-pencil {
+  cursor: url("../img/draw-pencil.png"), pointer;
+}
+
+.canvas-eraser {
+  cursor: url("../img/draw-eraser.png"), pointer;
+}
+
+.root {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 1px gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+}
