@@ -1,5 +1,5 @@
 //-------------------------------------
-export const hystory = {
+export const history = {
   frames: [
     {
       id: 0,
@@ -17,16 +17,16 @@ export const hystory = {
   currentIndex: 0,
 };
 //-------------------------------------
-export function addFrame(hystory) {
-  hystory.frames.push({
-    id: ++hystory.lastIndex,
+export function addFrame(history) {
+  history.frames.push({
+    id: ++history.lastIndex,
     steps: [{}],
   });
-  hystory.currentIndex = hystory.lastIndex;
+  history.currentIndex = history.lastIndex;
 }
 //-------------------------------------
-export async function addStepInFrame(hystory, index, appSettings, coordsObj) {
-  hystory.frames[index].steps.push({
+export async function addStepInFrame(history, index, appSettings, coordsObj) {
+  history.frames[index].steps.push({
     from: [coordsObj.from[0], coordsObj.from[1]],
     to: [coordsObj.to[0], coordsObj.to[1]],
     color: appSettings.canvas.strokeColor,

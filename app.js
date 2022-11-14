@@ -1,11 +1,11 @@
 import {currentCoordsObj} from "./data/coordsObj.js";
 import {appSettings} from "./data/appSettings.js";
-import {hystory, addFrame, addStepInFrame} from "./data/hystory.js";
+import {history, addFrame, addStepInFrame} from "./data/history.js";
 
 import {
   clearCanvas,
   drawPreviousFrame,
-  drawFrameFromHystory,
+  drawFrameFromHistory,
   setStrokeWidth,
   drawLine,
 } from "./utils/drawing.js";
@@ -75,10 +75,10 @@ playButton.addEventListener("click", (e) => {
 });
 //----------------------------------------------
 function draw() {
-  if (++animIndex > hystory.lastIndex) animIndex = 0;
+  if (++animIndex > history.lastIndex) animIndex = 0;
   if (appSettings.doesItPlay) requestAnimationFrame(draw);
   clearCanvas(context, canvas);
-  drawFrameFromHystory(context, animIndex, hystory);
+  drawFrameFromHistory(context, animIndex, history);
 }
 //-------------------------------------
 //EVENTS LISTENERS
@@ -90,19 +90,19 @@ function getFrameClickHandler() {
 
     const index = parseInt(event.target.getAttribute("index"));
 
-    hystory.currentIndex = index;
+    history.currentIndex = index;
 
     if (index)
       drawPreviousFrame(
         context,
         index - 1,
-        hystory,
+        history,
         appSettings.invisibleCanvas.previousFrameColor
       );
 
-    drawFrameFromHystory(context, index, hystory);
+    drawFrameFromHistory(context, index, history);
     (async function () {
-      drawFrameFromHystory(invisContext, index, hystory);
+      drawFrameFromHistory(invisContext, index, history);
     })();
 
     changeFrameSelectClass(event.target);
@@ -164,8 +164,8 @@ function getMouseMoveHandler() {
       })();
 
       addStepInFrame(
-        hystory,
-        hystory.currentIndex,
+        history,
+        history.currentIndex,
         appSettings,
         currentCoordsObj
       );
@@ -189,7 +189,7 @@ function getMouseUpHandler() {
 function getAddFrameClickHandler() {
   return (e) => {
     const newFrame = document.createElement("img");
-    newFrame.setAttribute("index", hystory.lastIndex + 1);
+    newFrame.setAttribute("index", history.lastIndex + 1);
 
     newFrame.className = currentFrame.className;
     newFrame.addEventListener("click", getFrameClickHandler());
@@ -201,24 +201,24 @@ function getAddFrameClickHandler() {
     clearCanvas(context, canvas);
     clearCanvas(invisContext, canvas);
 
-    addFrame(hystory);
+    addFrame(history);
     drawPreviousFrame(
       context,
-      hystory.lastIndex - 1,
-      hystory,
+      history.lastIndex - 1,
+      history,
       appSettings.invisibleCanvas.previousFrameColor
     );
 
-    frameCount.innerHTML = hystory.lastIndex + 1;
+    frameCount.innerHTML = history.lastIndex + 1;
   };
 }
 //-------------------------------------
 function play() {
-  hystory.frames.forEach((item) => {
+  history.frames.forEach((item) => {
     if (appSettings.doesItPlay) {
       setTimeout(() => {
         clearCanvas(context, canvas);
-        drawFrameFromHystory(context, item.id, hystory);
+        drawFrameFromHistory(context, item.id, history);
       }, 1000 / 24);
     }
     console.log(appSettings.doesItPlay);

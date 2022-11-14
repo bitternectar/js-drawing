@@ -14,8 +14,8 @@ export function drawLine(context, coordsObj) {
   context.closePath();
 }
 //-------------------------------------
-export function drawFrameFromHystory(context, index, hystory) {
-  hystory.frames[index].steps.forEach((item, index) => {
+export function drawFrameFromHistory(context, index, history) {
+  history.frames[index].steps.forEach((item, index) => {
     if (index) {
       setStrokeWidth(item.width, item.color, context);
       drawLine(context, {from: item.from, to: item.to});
@@ -23,8 +23,8 @@ export function drawFrameFromHystory(context, index, hystory) {
   });
 }
 //-------------------------------------
-export function drawPreviousFrame(context, index, hystory, color) {
-  hystory.frames[index].steps.forEach((item, index) => {
+export function drawPreviousFrame(context, index, history, color) {
+  history.frames[index].steps.forEach((item, index) => {
     if (index) {
       setStrokeWidth(
         item.width,
